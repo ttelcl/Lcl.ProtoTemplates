@@ -18,7 +18,6 @@ let color2 fclr bclr =
 let resetColor () =
   Console.ResetColor()
 
-
 (*
 Typical use of startfile and finishfile:
 
@@ -54,6 +53,7 @@ let finishFile name =
   else
     File.Move(tmp, name)
 
+/// General purpose mutable verbosity flag
 let mutable verbose = false
 
 /// Generic argument list splitter: turns a list of strings
@@ -98,7 +98,7 @@ let splitNoDash args =
   | [] ->
     [], []
 
-let consoleCancelToken =
+let private consoleCancelToken =
   let cts = new CancellationTokenSource()
   let token = cts.Token
   Console.CancelKeyPress.Add(
@@ -113,9 +113,12 @@ let consoleCancelToken =
           resetColor ()
           cts.Cancel()
           args.Cancel <- true
-        )
+      )
   token
 
+/// A function that returns true after CTRL-C has been pressed once
+/// (Pressing CTRL-C again has the usual behaviour of immediately
+/// aborting the program.)
 let canceled =
   fun () -> consoleCancelToken.IsCancellationRequested
 

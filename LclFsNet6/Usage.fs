@@ -2,14 +2,14 @@
 module Usage
 
 open CommonTools
-open PrintUtils
+open ColorPrint
 
 let usage detailed =
-  py "General description"
-  pn ""
-  py "$safeprojectname$ <arguments>"
-  pn "   (DESCRIPTION)"
-  p2 "-v               Verbose mode"
+  cp "\foGeneral description\f0"
+  cp ""
+  cp "\fo$safeprojectname$ \fg<arguments>\f0"
+  cp "   (DESCRIPTION)"
+  cp "\fg-v               \f0Verbose mode"
 
 
 

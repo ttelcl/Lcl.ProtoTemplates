@@ -3,8 +3,8 @@
 open CommonTools
 
 (*
-  This is an older color printing helper module. Consider using the functionality
-  provided by the ColorPrint module instead
+  This is an older color printing helper module.
+  Consider using the functionality provided by the ColorPrint module instead
 *)
 
 /// prints a line in a color

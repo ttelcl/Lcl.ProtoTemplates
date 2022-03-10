@@ -8,19 +8,23 @@ open System
 This module supports writing colored text to the console by interpreting special
 "escape" sequences. For simplicity and brevity these are custom for this module,
 and not using existing standard codes.
+
 All escape sequences use \f or \v followed by one character to indicate a color
-change. Side effect: this disables the opportunity to write a formfeed or
+change. [[Side effect: this disables the opportunity to write a formfeed or
 vertical tab to the console, but I assumed there are no good reasons to ever do
-that...
+that...]]
 
 The \f escape indicates a change in foreground color, \v a change in background
 color.
 
 Here are the defined escape codes (demonstrated with \f, but \v has equivalent
-counterparts):
+counterparts). Note that how these colors actually render strongly depends on
+your console settings.
 
 \f0 or \v0   Reset both foreground and background colors to their defaults
-\fx or \vx   Does nothing. Helpful when aligning different lines
+             (both codes are equivalent)
+\fx or \vx   Does nothing. Helpful when aligning different lines where some use
+             color escapes and others don't.
 
 \fK          ConsoleColor.Black (0)
 \fB          ConsoleColor.DarkBlue (1)
@@ -29,8 +33,8 @@ counterparts):
 \fR          ConsoleColor.DarkRed (4)
 \fM          ConsoleColor.DarkMagenta (5)
 \fY or \fo   ConsoleColor.DarkYellow (6) (looks orange, hence the 'o')
-\fW or \fa   ConsoleColor.Gray (7) ("Dark White")
-\fk or \fA   ConsoleColor.DarkGray (8) ("Light Black")
+\fW or \fa   ConsoleColor.Gray (7) ('W' == "Dark White")
+\fk or \fA   ConsoleColor.DarkGray (8) ('k' == "Light Black")
 \fb          ConsoleColor.Blue (9)
 \fg          ConsoleColor.Green (10)
 \fc          ConsoleColor.Cyan (11)
@@ -70,7 +74,7 @@ type private TextPart =
   | Reset
   | Nop
 
-let colorValue ch =
+let private colorValue ch =
   match ch with
   | 'K' -> ConsoleColor.Black
   | 'B' -> ConsoleColor.DarkBlue
@@ -149,12 +153,6 @@ let colprintn text =
   text |> colprint
   Console.WriteLine()
 
-/// Color-print a line with color escapes to stdout (and a line break)
-let cp = colprintn
-
-/// Color-print a string with color escapes to stdout (no line break)
-let cpx = colprint
-
 /// Color-print a string with color escapes to stderr (no line break)
 let ecolprint text =
   text |> ecolprintEx
@@ -165,9 +163,19 @@ let ecolprintn text =
   text |> ecolprint
   Console.Error.WriteLine()
 
+/// Color-print a line with color escapes to stdout (and a line break)
+/// (abbreviation for colprintn)
+let cp = colprintn
+
+/// Color-print a string with color escapes to stdout (no line break)
+/// (abbreviation for colprint)
+let cpx = colprint
+
 /// Color-print a line with color escapes to stderr (and a line break)
+/// (abbreviation for ecolprintn)
 let ecp = ecolprintn
 
 /// Color-print a string with color escapes to stderr (no line break)
+/// (abbreviation for ecolprint)
 let ecpx = ecolprint
 

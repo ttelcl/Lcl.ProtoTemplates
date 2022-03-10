@@ -16,7 +16,10 @@ let rec run arglist =
   | "-h" :: _
   | [] ->
     usage verbose
-    0
+    0  // program return status code to the operating system; 0 == "OK"
+  //  *EXAMPLE*:
+  //| "foo" :: rest ->
+  //  rest |> AppFoo.runFoo
   | _ :: _ ->
     // TODO: actual processing based on command line arguments
     new NotImplementedException("$safeprojectname$.exe is not yet implemented") |> raise

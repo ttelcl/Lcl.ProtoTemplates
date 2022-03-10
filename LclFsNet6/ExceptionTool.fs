@@ -1,10 +1,21 @@
 ﻿module ExceptionTool
 
+(*
+  Provides functionality for displaying exception messages in detailed
+  or brief styles.
+*)
+
 open System
 open System.Diagnostics
 open System.IO
 
 open CommonTools
+
+(*
+  This module has not yet been converted to use the newer and more compact
+  functionality in the ColorPrint module for color display, but uses the
+  older 'color' and 'resetColor' functions instead.
+*)
 
 let rec fancyExceptionPrint showTrace (ex:Exception) =
   try
