@@ -1,0 +1,38 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+	<!--
+	This is a hand-edited version of the *.vstemplate generated initially by the template export wizard
+	for the LclFsNet6 template
+	-->
+	<TemplateData>
+		<Name>LclFsNet6</Name>
+		<Description>Luc's F# .net6 console application (VS2022)</Description>
+		<ProjectType>fsharp</ProjectType>
+		<ProjectSubType>
+		</ProjectSubType>
+		<SortOrder>999</SortOrder>
+		<CreateNewFolder>true</CreateNewFolder>
+		<DefaultName>LclFsNetApp</DefaultName>
+		<ProvideDefaultName>true</ProvideDefaultName>
+		<LocationField>Enabled</LocationField>
+		<EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+		<CreateInPlace>true</CreateInPlace>
+		<!-- borrowed from an old template. That's the F# icon, no? -->
+		<Icon Package="{91A04A73-4F2C-4E7C-AD38-C1A68E7DA05C}" ID="4001" />
+		<!-- Tags to make the template discoverable in the add project dialog: -->
+		<LanguageTag>fsharp</LanguageTag>
+		<PlatformTag>windows</PlatformTag>
+		<PlatformTag>linux</PlatformTag>
+		<ProjectTypeTag>console</ProjectTypeTag>
+	</TemplateData>
+	<TemplateContent>
+		<Project TargetFileName="LclFsNet6.fsproj" File="LclFsNet6.fsproj" ReplaceParameters="true">
+			<ProjectItem ReplaceParameters="false" TargetFileName="ColorPrint.fs">ColorPrint.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="CommonTools.fs">CommonTools.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="PrintUtils.fs">PrintUtils.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="false" TargetFileName="ExceptionTool.fs">ExceptionTool.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Usage.fs">Usage.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="Program.fs" OpenInEditor="true">Program.fs</ProjectItem>
+			<ProjectItem ReplaceParameters="true" TargetFileName="README.md" OpenInEditor="true">README.md</ProjectItem>
+		</Project>
+	</TemplateContent>
+</VSTemplate>
