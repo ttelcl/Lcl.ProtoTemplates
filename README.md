@@ -52,3 +52,29 @@ characters. For example, for my VS2022 installation it was _17.0_c2daef97_.
  
 ## Templates
 * LclFsNet6: F# console template for use with .net6
+  
+  The latest version of my much-used F# console application template.
+
+  * Intended for use with .NET6 and VS2022.
+  * Includes a Exception catcher and pretty-printer
+  * Includes "verbosity" flag support for use in your application;
+    it is also used by the exception handler
+  * Includes a stub for a command line parser
+  * Includes a framework for help/usage message
+  * Includes a module to make it simpler and more compact to write
+    colored text to the console. See the comments in ColorPrint.fs
+    for notes on usage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
